@@ -42,9 +42,6 @@ export default class Game extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-  }
-
-  handleChange(event) {
     this.setState({currentGuess: event.taget.value});
     console.log(this.state.currentGuess);
   }
@@ -53,7 +50,7 @@ export default class Game extends React.Component {
     return (
       <div>
         <Header />
-        <GuessSection feedback={this.setFeedback()} value={this.state.currentGuess} onSubmit={event => this.handleSubmit(event)} onChange={event => this.handleChange(event)}/>
+        <GuessSection feedback={this.setFeedback()} handleSubmit={event => this.handleSubmit(event)}/>
         <GuessCount count={this.state.guesses.length} />
         <GuessList guesses={this.state.guesses} />
       </div>
